@@ -19,15 +19,15 @@
 
 ## 🌐 Portfolio — Live Preview
 
-> A blazing-fast, fully responsive personal portfolio built with **React + TypeScript + Vite**, featuring live GitHub API integration, smooth Framer Motion animations, and a dark glassmorphic design system.
+> A modern, fully responsive developer portfolio built with **React, TypeScript, Vite, and Tailwind CSS**, featuring smooth Framer Motion animations, live GitHub repository integration, dynamic project filtering, and a premium dark glassmorphic UI designed for performance and an exceptional user experience.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/9f5d82ed-1ace-4717-b171-fbd28d5cd235" alt="Portfolio Preview" width="100%" />
+  <img src="https://github.com/user-attachments/assets/b4cd0229-13c5-48cd-ac65-96209a798d44" alt="Portfolio Preview" width="100%" />
 </p>
 
 <p align="center">
   <a href="https://github.com/Mustafazahoor975/Portfolio_React.js" target="_blank">
-    <img src="https://img.shields.io/badge/View%20Source-181717?style=for-the-badge&logo=github&logoColor=white" />
+    <img src="https://img.shields.io/badge/View%20Source-181717?style=for-the-badge&logo=github&logoColor=white" alt="View Source" />
   </a>
 </p>
 

@@ -7,6 +7,15 @@ import ProjectCard, { ProjectData } from '../components/ProjectCard';
 const CACHE_KEY = 'mz_portfolio_github_repos';
 const CACHE_EXPIRY = 60 * 60 * 1000; // 1 hour in ms
 
+// Custom description overrides for specific repositories
+const CUSTOM_DESCRIPTIONS: Record<string, string> = {
+  'madadgar': 'A full-stack home services platform that connects users with trusted professionals for everyday household needs, including cleaning, dishwashing, gardening, and other domestic services. Features secure user authentication, service booking, role-based dashboards, and a modern, responsive user experience.',
+  'skinzy': 'An AI-powered skincare and wellness platform that analyzes facial skin using TensorFlow.js and provides personalized skincare recommendations. Features weather-based skincare routines, dermatologist appointments, community support, and a secure full-stack architecture built with modern web technologies.',
+  'portfolio_react.js': 'A modern personal portfolio built with React, TypeScript, and Vite to showcase my projects, technical skills, GitHub activity, and professional journey. Designed with smooth animations, responsive layouts, and a clean user experience to highlight my work as a Full Stack Developer.',
+  'recipe-recommendation': 'A responsive frontend web application that helps users discover and explore a variety of recipes through an intuitive and visually appealing interface. Built with JavaScript and modern frontend practices to deliver a smooth browsing experience across all devices.',
+  'event-handling': 'An interactive frontend application demonstrating event-driven programming concepts in React. It showcases user interactions, event management, state updates, and dynamic UI behavior through a clean and responsive interface.'
+};
+
 const Projects: React.FC = () => {
   const [projects, setProjects] = useState<ProjectData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -26,7 +35,15 @@ const Projects: React.FC = () => {
         try {
           const { data, timestamp } = JSON.parse(cached);
           if (Date.now() - timestamp < CACHE_EXPIRY) {
-            setProjects(data);
+            // Apply custom descriptions to cached projects too, in case of outdated cache
+            const updatedData = data.map((p: ProjectData) => {
+              const nameLower = p.name.toLowerCase();
+              if (CUSTOM_DESCRIPTIONS[nameLower]) {
+                return { ...p, description: CUSTOM_DESCRIPTIONS[nameLower] };
+              }
+              return p;
+            });
+            setProjects(updatedData);
             setLoading(false);
             return;
           }
@@ -81,10 +98,14 @@ const Projects: React.FC = () => {
             customTopics.push('react', 'javascript', 'css');
           }
 
+          // Apply description overrides
+          const nameLower = repo.name.toLowerCase();
+          const description = CUSTOM_DESCRIPTIONS[nameLower] || repo.description;
+
           return {
             id: repo.id,
             name: repo.name,
-            description: repo.description,
+            description: description,
             html_url: repo.html_url,
             homepage: repo.homepage,
             stargazers_count: repo.stargazers_count,
@@ -101,7 +122,7 @@ const Projects: React.FC = () => {
         const mockMadadgar: ProjectData = {
           id: 999991,
           name: 'Madadgar',
-          description: 'A premium full-stack community assistance & disaster response portal. Features real-time emergency routing, relief coordinates, crowd-sourced volunteer maps, and authenticated NGO dashboards.',
+          description: CUSTOM_DESCRIPTIONS['madadgar'],
           html_url: 'https://github.com/Mustafazahoor975/Madadgar',
           homepage: 'https://madadgar-relief.vercel.app', // Placeholder
           stargazers_count: 7,
@@ -137,7 +158,14 @@ const Projects: React.FC = () => {
       if (cached) {
         try {
           const { data } = JSON.parse(cached);
-          setProjects(data);
+          const updatedData = data.map((p: ProjectData) => {
+            const nameLower = p.name.toLowerCase();
+            if (CUSTOM_DESCRIPTIONS[nameLower]) {
+              return { ...p, description: CUSTOM_DESCRIPTIONS[nameLower] };
+            }
+            return p;
+          });
+          setProjects(updatedData);
           setError('Offline Mode: Displaying cached repositories.');
         } catch (e) {}
       }

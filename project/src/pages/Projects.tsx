@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaSearch, FaSync } from 'react-icons/fa';
@@ -13,7 +14,8 @@ const CUSTOM_DESCRIPTIONS: Record<string, string> = {
   'skinzy': 'An AI-powered skincare and wellness platform that analyzes facial skin using TensorFlow.js and provides personalized skincare recommendations. Features weather-based skincare routines, dermatologist appointments, community support, and a secure full-stack architecture built with modern web technologies.',
   'portfolio_react.js': 'A modern personal portfolio built with React, TypeScript, and Vite to showcase my projects, technical skills, GitHub activity, and professional journey. Designed with smooth animations, responsive layouts, and a clean user experience to highlight my work as a Full Stack Developer.',
   'recipe-recommendation': 'A responsive frontend web application that helps users discover and explore a variety of recipes through an intuitive and visually appealing interface. Built with JavaScript and modern frontend practices to deliver a smooth browsing experience across all devices.',
-  'event-handling': 'An interactive frontend application demonstrating event-driven programming concepts in React. It showcases user interactions, event management, state updates, and dynamic UI behavior through a clean and responsive interface.'
+  'event-handling': 'An interactive frontend application demonstrating event-driven programming concepts in React. It showcases user interactions, event management, state updates, and dynamic UI behavior through a clean and responsive interface.',
+  'sajiero': 'A premium full-stack e-commerce platform for luxury lingerie and nightwear, featuring a seamless shopping experience, secure authentication, persistent cart and wishlist management, and a responsive modern interface built with Next.js and Node.js.'
 };
 
 const Projects: React.FC = () => {
@@ -72,26 +74,29 @@ const Projects: React.FC = () => {
         .filter((repo: any) => {
           // Exclude forks, empty repositories, and test/practice codebases
           if (repo.fork || repo.size === 0) return false;
-          
+
           const name = repo.name.toLowerCase();
           const desc = (repo.description || '').toLowerCase();
-          
+
           const blacklist = [
-            'test', 'practice', 'exercise', 'demo', 'tutorial', 
+            'test', 'practice', 'exercise', 'demo', 'tutorial',
             'hello-world', 'learning', 'trial', 'hackathon'
           ];
-          
+
           return !blacklist.some(term => name.includes(term) || desc.includes(term));
         })
         .map((repo: any) => {
           // Enrich known repositories with metadata & categories
           const isSkinzy = repo.name.toLowerCase() === 'skinzy';
+          const isSajiero = repo.name.toLowerCase() === 'sajiero';
           const topics = repo.topics || [];
-          
+
           // Inject custom tags if not set in GitHub topics
           const customTopics = [...topics];
           if (isSkinzy && customTopics.length === 0) {
             customTopics.push('react', 'typescript', 'tailwind', 'framer-motion');
+          } else if (isSajiero && customTopics.length === 0) {
+            customTopics.push('nextjs', 'nodejs', 'mongodb', 'express', 'react');
           } else if (repo.name === 'Recipe-Recommendation' && customTopics.length === 0) {
             customTopics.push('nodejs', 'express', 'mongodb', 'javascript');
           } else if (repo.name === 'Event-Handling' && customTopics.length === 0) {
@@ -152,7 +157,7 @@ const Projects: React.FC = () => {
     } catch (err: any) {
       console.error(err);
       setError(err.message || 'Failed to connect to the GitHub servers.');
-      
+
       // Fallback: If network fails but cache exists (even if expired), use it
       const cached = localStorage.getItem(CACHE_KEY);
       if (cached) {
@@ -167,7 +172,7 @@ const Projects: React.FC = () => {
           });
           setProjects(updatedData);
           setError('Offline Mode: Displaying cached repositories.');
-        } catch (e) {}
+        } catch (e) { }
       }
     } finally {
       setLoading(false);
@@ -183,7 +188,7 @@ const Projects: React.FC = () => {
     return projects.filter(project => {
       // 1. Search Query check
       const query = searchQuery.toLowerCase();
-      const matchesSearch = 
+      const matchesSearch =
         project.name.toLowerCase().includes(query) ||
         (project.description || '').toLowerCase().includes(query) ||
         (project.language || '').toLowerCase().includes(query) ||
@@ -194,14 +199,14 @@ const Projects: React.FC = () => {
       // 2. Category check
       if (activeCategory === 'all') return true;
       if (activeCategory === 'featured') return project.isFeatured;
-      
+
       const isFrontendLanguage = ['typescript', 'javascript', 'html', 'css'].includes((project.language || '').toLowerCase());
       const isFrontendTopics = project.topics?.some(t => ['react', 'tailwind', 'sass', 'css', 'nextjs'].includes(t.toLowerCase()));
-      
+
       if (activeCategory === 'frontend') {
         return isFrontendLanguage || isFrontendTopics;
       }
-      
+
       if (activeCategory === 'backend') {
         const isBackendLanguage = ['python', 'go', 'java', 'c++'].includes((project.language || '').toLowerCase());
         const isBackendTopics = project.topics?.some(t => ['node', 'express', 'mongodb', 'prisma', 'sql', 'api', 'server'].includes(t.toLowerCase()));
@@ -217,7 +222,7 @@ const Projects: React.FC = () => {
   return (
     <div className="relative min-h-screen pt-28 pb-16 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 z-10 relative">
-        
+
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -236,7 +241,7 @@ const Projects: React.FC = () => {
 
         {/* Controls Container (Search + Filter) */}
         <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-white/[0.02] border border-white/5 p-4 rounded-3xl mb-12 backdrop-blur-md">
-          
+
           {/* Filter Categories */}
           <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
             {[
@@ -250,11 +255,10 @@ const Projects: React.FC = () => {
                 <button
                   key={btn.id}
                   onClick={() => setActiveCategory(btn.id as any)}
-                  className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-300 ${
-                    isActive
+                  className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-300 ${isActive
                       ? 'bg-gradient-to-r from-primary-600 to-accent-blue text-white shadow-md'
                       : 'text-slate-400 hover:text-white bg-white/[0.02] border border-white/5 hover:border-white/10'
-                  }`}
+                    }`}
                 >
                   {btn.label}
                 </button>
@@ -306,7 +310,7 @@ const Projects: React.FC = () => {
             {filtered.length === 0 ? (
               <div className="text-center py-20 bg-white/[0.01] border border-white/5 rounded-3xl backdrop-blur-md">
                 <p className="text-slate-400">No repositories found matching your search filters.</p>
-                <button 
+                <button
                   onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
                   className="mt-4 text-xs font-semibold text-primary-400 hover:underline"
                 >
@@ -315,16 +319,16 @@ const Projects: React.FC = () => {
               </div>
             ) : (
               /* Projects Grid */
-              <motion.div 
+              <motion.div
                 layout
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch"
               >
                 <AnimatePresence mode="popLayout">
                   {filtered.map((project, idx) => (
-                    <ProjectCard 
-                      key={project.id} 
-                      project={project} 
-                      index={idx} 
+                    <ProjectCard
+                      key={project.id}
+                      project={project}
+                      index={idx}
                     />
                   ))}
                 </AnimatePresence>

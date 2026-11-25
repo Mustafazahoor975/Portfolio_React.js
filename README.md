@@ -153,9 +153,9 @@ This project is deployed via **Vercel**. Configuration:
 
 ## 👨‍💻 About Me
 
-I'm **Mustafa Zahoor**, a BS Software Engineering student at **UET** with a passion for crafting premium full-stack web experiences. I specialize in the MERN stack and modern React/TypeScript ecosystems.
+I'm **Mustafa Zahoor**, a BS Software Engineering student at **University of Central Punjab (UCP)** with a passion for crafting premium full-stack web experiences. I specialize in the MERN stack and modern React/TypeScript ecosystems.
 
-- 🎓 Currently pursuing **BS Software Engineering** at UET
+- 🎓 Currently pursuing **BS Software Engineering** at University of Central Punjab (UCP)
 - 💼 Open to internships and full-time opportunities
 - 🌱 Always learning — currently exploring AI integrations and advanced React patterns
 - 📍 Based in Pakistan

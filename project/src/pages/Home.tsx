@@ -113,8 +113,8 @@ const Home: React.FC = () => {
           <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl">
             Passionate about creating innovative digital solutions that make a difference. 
             I combine technical expertise with creative problem-solving to build applications 
-            that users love. Currently pursuing my degree in Software Engineering while 
-            crafting high-performance MERN & React interfaces.
+            that users love. I completed my BS in Software Engineering at UCP in July 2026 
+            and build web and mobile projects with React, Node.js and related technologies.
           </p>
 
           {/* CTA Buttons */}
@@ -196,7 +196,7 @@ const Home: React.FC = () => {
                 <span className="text-[#9cdcfe]">"role"</span>: <span className="text-[#ce9178]">"Software Engineer"</span>,
               </div>
               <div className="pl-6">
-                <span className="text-[#9cdcfe]">"education"</span>: <span className="text-[#ce9178]">"BS Software Engineering"</span>,
+                <span className="text-[#9cdcfe]">"education"</span>: <span className="text-[#ce9178]">"BS Software Engineering, UCP — July 2026"</span>,
               </div>
               <div className="pl-6">
                 <span className="text-[#9cdcfe]">"skills"</span>: <span className="text-accent-purple">{"["}</span>

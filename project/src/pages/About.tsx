@@ -8,7 +8,7 @@ const About: React.FC = () => {
   const education = [
     {
       title: 'BS in Software Engineering',
-      institution: 'University of Engineering and Technology (UET)',
+      institution: 'University of Central Punjab (UCP)',
       date: '2022 - Present',
       description: 'Acquiring deep knowledge in software development principles, data structures, algorithms, database systems, and system design.',
     },
@@ -31,13 +31,13 @@ const About: React.FC = () => {
       title: 'Full Stack Developer (Personal & Academic projects)',
       organization: 'Self-Employed / Independent Work',
       date: '2023 - Present',
-      description: 'Designed and built full-stack solutions like Recipe-Recommendation and Event-Handling systems. Integrated database indexing, modern state managers, and hosted them on Vercel and Render.',
+      description: 'Independently built Sajiero, Recipe-Recommendation, Event-Handling and my developer portfolio, covering project implementation and documentation.',
     },
     {
-      title: 'Frontend Developer & UI Designer',
-      organization: 'Skinzy Project',
+      title: 'Model Training & Web Development',
+      organization: 'Skinzy — Team Project',
       date: '2026',
-      description: 'Constructed the web interface for Skinzy using React, TypeScript, and modern component systems. Standardized state machines and animations with Framer Motion to wow recruiters.',
+      description: 'Contributed model training and developed the website frontend and backend as part of the Skinzy team.',
     },
     {
       title: 'Collaborative FYP / Major Project Developer',

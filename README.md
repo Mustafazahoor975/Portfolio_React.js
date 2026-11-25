@@ -19,6 +19,8 @@
 
 ## 🌐 Portfolio — Live Preview
 
+[Open the live portfolio](https://portfolio-react-js-tan.vercel.app/)
+
 > A modern, fully responsive developer portfolio built with **React, TypeScript, Vite, and Tailwind CSS**, featuring smooth Framer Motion animations, live GitHub repository integration, dynamic project filtering, and a premium dark glassmorphic UI designed for performance and an exceptional user experience.
 
 <p align="center">
@@ -43,7 +45,7 @@
 - 📊 **Animated Stats** — Count-up number animations for experience, projects, and technologies
 - 🎞️ **Framer Motion** — Page transitions, stagger animations, and micro-interactions throughout
 - 📱 **Fully Responsive** — Adapts beautifully across mobile, tablet, and desktop
-- 🧭 **SPA Routing** — Client-side navigation with React Router v6
+- 🧭 **SPA Routing** — Client-side navigation with React Router v7
 - 🌙 **Animated Background** — Subtle animated particle canvas for visual depth
 
 ---
@@ -52,10 +54,10 @@
 
 | Category | Technologies |
 |----------|-------------|
-| **Frontend** | React 18, TypeScript, Vite 7 |
+| **Frontend** | React 19, TypeScript, Vite 7 |
 | **Styling** | Tailwind CSS v4, Custom CSS Variables |
 | **Animation** | Framer Motion |
-| **Routing** | React Router v6 |
+| **Routing** | React Router v7 |
 | **Icons** | React Icons (Font Awesome, Simple Icons, VS Code Icons) |
 | **Data** | GitHub REST API v3 |
 | **Deployment** | Vercel |
@@ -95,8 +97,8 @@ project/
 
 ### Prerequisites
 
-- Node.js `v18+`
-- npm `v9+`
+- Node.js `20.19+` or `22.12+` (required by the pinned Vite 7 dependency)
+- npm (bundled with your supported Node.js installation)
 
 ### Installation
 
@@ -140,16 +142,24 @@ The output will be in the `project/dist/` folder — ready to deploy.
 
 ## 🔧 Vercel Deployment
 
-This project is deployed via **Vercel**. Configuration:
+This project is deployed via **Vercel**. Recommended build settings:
 
 | Setting | Value |
 |---------|-------|
 | **Root Directory** | `project` |
 | **Build Command** | `npm run build` |
 | **Output Directory** | `dist` |
-| **Node Version** | `18.x` |
+| **Node Version** | Use `22.12+` or another version satisfying Vite's engine requirement |
 
 ---
+
+## My contribution
+
+**Solo project — Mustafa Zahoor.** I built the portfolio, including its React/TypeScript pages, animated interface and GitHub repository browsing.
+
+## Resume availability
+
+The homepage offers a **Request Resume** email action. A downloadable resume PDF has not been included in this repository.
 
 ## 👨‍💻 About Me
 

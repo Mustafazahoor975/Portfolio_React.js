@@ -9,7 +9,7 @@ const About: React.FC = () => {
     {
       title: 'BS in Software Engineering',
       institution: 'University of Central Punjab (UCP)',
-      date: '2022 - Present',
+      date: 'Completed July 2026',
       description: 'Acquiring deep knowledge in software development principles, data structures, algorithms, database systems, and system design.',
     },
     {
@@ -83,7 +83,7 @@ const About: React.FC = () => {
           >
             <h3 className="text-2xl font-bold text-white">Who is Mustafa Zahoor?</h3>
             <p className="leading-relaxed">
-              Hello! I'm a software engineering student with a deep passion for full-stack application development. My journey is built on continuous curiosity, moving from fundamental algorithmic problem-solving to crafting elegant, fluid web interfaces.
+              I completed my BS in Software Engineering at the University of Central Punjab (UCP) in July 2026. I build web and mobile applications and am seeking software engineering opportunities where I can contribute and continue developing my skills.
             </p>
             <p className="leading-relaxed">
               I believe software is more than lines of script—it's about creating intuitive digital spaces that users find pleasant and functional. My goal is to build secure, robust backend systems connected to responsive, stunning user interfaces.

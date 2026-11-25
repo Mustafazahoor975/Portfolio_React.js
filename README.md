@@ -163,9 +163,9 @@ The homepage offers a **Request Resume** email action. A downloadable resume PDF
 
 ## 👨‍💻 About Me
 
-I'm **Mustafa Zahoor**, a BS Software Engineering student at **University of Central Punjab (UCP)** with a passion for crafting premium full-stack web experiences. I specialize in the MERN stack and modern React/TypeScript ecosystems.
+I'm **Mustafa Zahoor**, a **BS Software Engineering graduate from University of Central Punjab (UCP), completed July 2026,** with a passion for crafting premium full-stack web experiences. I specialize in the MERN stack and modern React/TypeScript ecosystems.
 
-- 🎓 Currently pursuing **BS Software Engineering** at University of Central Punjab (UCP)
+- 🎓 Completed **BS Software Engineering** at University of Central Punjab (UCP) in **July 2026**
 - 💼 Open to internships and full-time opportunities
 - 🌱 Always learning — currently exploring AI integrations and advanced React patterns
 - 📍 Based in Pakistan

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaDownload, FaArrowRight } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight } from 'react-icons/fa';
 
 // Custom lightweight Typewriter component for maximum speed & control
 const Typewriter: React.FC<{ words: string[] }> = ({ words }) => {
@@ -128,12 +128,11 @@ const Home: React.FC = () => {
             </Link>
             
             <a 
-              href="/resume.pdf" 
-              download
+              href="mailto:mustafa.zahoor222@gmail.com?subject=Resume%20request"
               className="px-8 py-3.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white font-medium rounded-xl hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2"
             >
-              <FaDownload className="text-sm text-slate-400" />
-              Download Resume
+              <FaEnvelope className="text-sm text-slate-400" />
+              Request Resume
             </a>
           </div>
 

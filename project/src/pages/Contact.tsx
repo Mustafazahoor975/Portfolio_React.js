@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaEnvelope, FaUser, FaMapMarkerAlt, FaLinkedin, FaGithub, FaDownload, FaPaperPlane, FaCheckCircle } from 'react-icons/fa';
+import { FaEnvelope, FaUser, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPaperPlane, FaCheckCircle } from 'react-icons/fa';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -18,16 +18,16 @@ const Contact: React.FC = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
 
-    // Simulate API request send
-    await new Promise((resolve) => setTimeout(resolve, 1200));
+    const subject = encodeURIComponent(`Portfolio enquiry from ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`);
+    window.location.href = `mailto:mustafa.zahoor222@gmail.com?subject=${subject}&body=${body}`;
 
     setSubmitting(false);
     setSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
 
     // Reset success banner after 5s
     setTimeout(() => setSubmitted(false), 5000);
@@ -143,12 +143,11 @@ const Contact: React.FC = () => {
                 </div>
 
                 <a
-                  href="/resume.pdf"
-                  download
+                  href="mailto:mustafa.zahoor222@gmail.com?subject=Resume%20request"
                   className="w-full text-center py-3.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-white rounded-xl text-sm font-semibold tracking-wider flex items-center justify-center gap-2 transition-all active:scale-95"
                 >
-                  <FaDownload className="text-xs text-slate-400" />
-                  Download Complete CV
+                  <FaEnvelope className="text-xs text-slate-400" />
+                  Request Resume
                 </a>
               </div>
             </div>
@@ -175,9 +174,9 @@ const Contact: React.FC = () => {
                     className="flex flex-col items-center justify-center py-20 text-center gap-4"
                   >
                     <FaCheckCircle className="text-5xl text-accent-cyan animate-bounce" />
-                    <h4 className="text-xl font-bold text-white">Message Transmitted!</h4>
+                    <h4 className="text-xl font-bold text-white">Continue in your email app</h4>
                     <p className="text-slate-400 text-sm max-w-sm">
-                      Thank you for reaching out. I have cached your enquiry locally and will connect with you via email shortly.
+                      Review and send the prepared draft in your email app. This website has not sent a message. If no email app opens, use the email address shown on this page.
                     </p>
                   </motion.div>
                 ) : (
@@ -239,12 +238,12 @@ const Contact: React.FC = () => {
                       {submitting ? (
                         <>
                           <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                          Transmitting...
+                          Opening draft...
                         </>
                       ) : (
                         <>
                           <FaPaperPlane className="text-xs text-slate-300" />
-                          Send Message
+                          Open Email Draft
                         </>
                       )}
                     </button>

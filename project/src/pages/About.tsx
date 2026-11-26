@@ -10,7 +10,7 @@ const About: React.FC = () => {
       title: 'BS in Software Engineering',
       institution: 'University of Central Punjab (UCP)',
       date: 'Completed July 2026',
-      description: 'Acquiring deep knowledge in software development principles, data structures, algorithms, database systems, and system design.',
+      description: 'Studied software development principles, data structures, algorithms, database systems and system design.',
     },
     {
       title: 'Full-Stack Web Development Bootcamps & Courses',
